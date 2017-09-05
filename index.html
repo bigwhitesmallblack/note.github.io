@@ -104,7 +104,7 @@
     		},
     		methods: {
     			readList: function () {
-    				this.$http.get("data/list.json").then(function (res) {
+    				this.$http.get("list.json").then(function (res) {
     					_this.items = res.body.result.list;
     				});
     			}
