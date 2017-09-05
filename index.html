@@ -80,23 +80,34 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.bootcss.com/vue-resource/1.3.4/vue-resource.min.js"></script>
     <script>
     	var list1 = new Vue({
     		el: "#list-1",
     		data: {
     			items: [
-    				{message: '数据类型'},
-    				{message: '函数'},
-    				{message: '标准对象'},
-    				{message: '继承'},
-    				{message: 'JSON'},
-    				{message: '浏览器对象'},
-    				{message: 'DOM操作'},
-    				{message: 'Ajax'},
-    				{message: 'Promise'},
-    				{message: 'Canvas'},
-    				{message: 'jquery'},
+    				// {message: '数据类型'},
+    				// {message: '函数'},
+    				// {message: '标准对象'},
+    				// {message: '继承'},
+    				// {message: 'JSON'},
+    				// {message: '浏览器对象'},
+    				// {message: 'DOM操作'},
+    				// {message: 'Ajax'},
+    				// {message: 'Promise'},
+    				// {message: 'Canvas'},
+    				// {message: 'jquery'},
     			]
+    		},
+    		mounted: function () {
+    			this.readList();
+    		},
+    		methods: {
+    			readList: function () {
+    				this.$http.get("data/list.json").then(function (res) {
+    					_this.items = res.body.result.list;
+    				});
+    			}
     		}
     	})
 
