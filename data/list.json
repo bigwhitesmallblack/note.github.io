@@ -1,19 +1,31 @@
 {
-	"status":0,
-	"message":"success",
-	"result":{
-		"list":[
-			{"message":"数据类型"},
-			{"message":"函数"},
-			{"message":"标准对象"},
-			{"message":"继承"},
-			{"message":"JSON"},
-			{"message":"浏览器对象"},
-			{"message":"DOM操作"},
-			{"message":"Ajax"},
-			{"message":"Promise"},
-			{"message":"Canvas"},
-			{"message":"jquery"},
-		]
-	},
+    "status": 1,
+    "result": {
+        "list": [
+            {
+                "message": "数据类型"
+            },
+            {
+                "message": "函数"
+            },
+            {
+                "message": "标准对象"
+            },
+            {
+                "message": "JSON"
+            },
+            {
+                "message": "浏览器对象"
+            },
+            {
+                "message": "DOM操作"
+            },
+            {
+                "message": "Ajax"
+            },
+            {
+                "message": "jquery"
+            }
+        ]
+    }
 }
