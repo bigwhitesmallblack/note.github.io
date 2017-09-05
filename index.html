@@ -106,7 +106,7 @@
     			readList: function () {
 				var _this = this;
     				this.$http.get("data/list.json").then(function (res) {
-    					_this.items = res.bodyText.list;
+    					_this.items = res.bodyText.result.list;
     				});
     			}
     		}
