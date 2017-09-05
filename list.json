@@ -1,8 +1,4 @@
 {
-	"status": 0,
-	"message": "success",
-	"result": {
-		"list":[
 		{"message": "数据类型"},
     		{"message": "函数"},
     		{"message": "标准对象"},
@@ -14,6 +10,4 @@
     		{"message": "Promise"},
     		{"message": "Canvas"},
     		{"message": "jquery"},
-		]
-	},
-},
+}
