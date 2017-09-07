@@ -40,7 +40,7 @@
                 "title": "比较运算符",
                 "contents": [
                                 {
-                                   "content": "==比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；而 ===比较，它不会自动转换数据类型，如果数据类型不一致，返回false，如果一致，再比较。",
+                                   "content": "==比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；而 ===比较，它不会自动转换数据类型，如果数据类型不一致，返回false，如果一致，再比较。"
                                 },
                                 {
                                     "content": "NaN与所有的值都不相等，包括它自己。唯一能判断的只有isNaN()方法//isNaN(NaN)。"
@@ -55,7 +55,7 @@
                 "title": "null & underfined",
                 "contents": [
                                 {
-                                   "content": "null 表示一个‘空’的值，与0和''不同。",
+                                   "content": "null 表示一个‘空’的值，与0和''不同。"
                                 },
                                 {
                                     "content": "underfined表示未定义常用于判断参数是否传递的情况。"
@@ -67,7 +67,7 @@
                 "title": "Array",
                 "contents": [
                                 {
-                                   "content": "JavaScript中的数组可以包含任意类型。推荐直接用 [] 来创建。",
+                                   "content": "JavaScript中的数组可以包含任意类型。推荐直接用 [] 来创建。"
                                 }
                             ]
             },
@@ -76,7 +76,7 @@
                 "title": "Object",
                 "contents": [
                                 {
-                                   "content": "JavaScript中的对象是由一组 键:值 组成的无序集合",
+                                   "content": "JavaScript中的对象是由一组 键:值 组成的无序集合"
                                 }
                             ]
             },
@@ -85,8 +85,29 @@
                 "title": "变量",
                 "contents": [
                                 {
-                                   "content": "JavaScript中的变量不能以数字开头。",
+                                   "content": "JavaScript中的变量不能以数字开头。"
                                 }
+                            ]
+            },
+            {
+                "id": 9,
+                "title": "一些字符串方法",
+                "contents": [
+                                {
+                                   "content": "toUpperCase(): 将一个英文字符串全部转换成大写。"
+                                },
+                                {
+                                    "content": "toLowerCase()：将一个英文字符串全部转换成小写。"
+                                },
+                                {
+                                    "content": "indexOf()：收索制定字符串出现的位置。"
+                                },
+                                {
+                                    "content": "substring()：返回指定区间的子串。"
+                                },
+                                {
+                                    "content": "split()：分割字符串成字符数组，并返回此数组。。"
+                                },
                             ]
             }
         ]
