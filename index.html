@@ -85,19 +85,7 @@
     	var list1 = new Vue({
     		el: "#list-1",
     		data: {
-    			items: [
-    				// {message: '数据类型'},
-    				// {message: '函数'},
-    				// {message: '标准对象'},
-    				// {message: '继承'},
-    				// {message: 'JSON'},
-    				// {message: '浏览器对象'},
-    				// {message: 'DOM操作'},
-    				// {message: 'Ajax'},
-    				// {message: 'Promise'},
-    				// {message: 'Canvas'},
-    				// {message: 'jquery'},
-    			]
+    			items: []
     		},
     		mounted: function () {
     			this.readList();
@@ -111,7 +99,6 @@
     			}
     		}
     	})
-
     	var title = new Vue({
     		el: "#title",
     		data: {
@@ -119,118 +106,22 @@
     		}
     	})
 
-		// var child = {
-		// 	props: ['title','content'],
-		// 	template: '<dt>{{ title }}</dt>'
-		// }
-
-		// var child2 = {
-		// 	props: ['title','content'],
-		// 	template: '<dd>{{ content }}</dd>'
-		// }
-
-		// var child3 = {
-		// 	props: ['title','content'],
-		// }
-
 		var content1 = new Vue({
 			el: '#content-1',
-			// components: {
-			// 	'my-component': child,
-			// 	'my-component2': child2,
-			// 	'my-com': child3
-			// },
 			data: {
-    			items: [
-    				{
-    					id: 1,
-    					title: 'Number',
-    					contents: [
-    								{
-    									content: 'JavaScript不区分整数与浮点数，同一用Number表示(NaN,Infinity也为Number)。',
-    								},
-    								{
-    									content: 'NaN: Not a Number / Infinity: 表示无穷大',
-    								}
-    							]
-    				},
-    				{
-    					id: 2,
-    					title: '字符串',
-    					contents: [
-    								{
-    									content: '\'\'或\"\"本身只是一种表示方式，不是字符串的一部分，因此，字符串\'abc\'只有a，b，c这3个字符。',
-    								},
-    								{
-    									content: '转义字符 \'\\\'。',
-    								}
-    							]
-    				},
-    				{
-    					id: 3,
-    					title: '布尔值',
-    					contents: [
-    								{
-    									content: 'true false ||或 &&与 !非',
-    								}
-    							]
-    				},
-    				{
-    					id: 4,
-    					title: '比较运算符',
-    					contents: [
-    								{
-    									content: '==比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；而 ===比较，它不会自动转换数据类型，如果数据类型不一致，返回false，如果一致，再比较。',
-    								},
-    								{
-    									content: 'NaN与所有的值都不相等，包括它自己。唯一能判断的只有isNaN()方法//isNaN(NaN)。',
-    								},
-    								{
-    									content: '浮点数的比较：计算机无法精确的表示无限循环小数，要比较两个浮点数是否相等，只能计算它们之间的绝对值差是否小于某个值。',
-    								}
-    							]
-    				},
-    				{
-    					id: 5,
-    					title: 'null & underfined',
-    					contents: [
-    								{
-    									content: 'null 表示一个‘空’的值，与0和\'\'不同。',
-    								},
-    								{
-    									content: 'underfined表示未定义常用于判断参数是否传递的情况。',
-    								}
-    							]
-    				},
-    				{
-    					id: 6,
-    					title: 'Array',
-    					contents: [
-    								{
-    									content: 'JavaScript中的数组可以包含任意类型。推荐直接用 [] 来创建。',
-    								}
-    							]
-    				},
-    				{
-    					id: 7,
-    					title: 'Object',
-    					contents: [
-    								{
-    									content: 'JavaScript中的对象是由一组 键:值 组成的无序集合。',
-    								}
-    							]
-    				},
-    				{
-    					id: 8,
-    					title: '变量',
-    					contents: [
-    								{
-    									content: 'JavaScript中的变量不能以数字开头。',
-    								}
-    							]
-    				}
-    			]
-    		}
+    				items: []
+			},
+			mounted: function () {
+				this.readContent();
+			},
+			methods: {
+				readContent: function () {
+					var _this = this;
+					this.$http.get("data/content1.json").then(function (res) {
+						_this.items = res.data.result.item;
+					})
+				}
+			}
 		})
     </script>
   </body>
