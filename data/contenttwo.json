@@ -1,0 +1,217 @@
+{
+    "status": 1, 
+    "result": {
+        "item": [
+            {
+                "id": 1, 
+                "title": "调用函数", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "由于JavaScript允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有问题(多余的参数并不会被函数接收)，传入的参数比定义的参数少也没有问题(少的参数返回NaN)。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "argument-只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。其类似Array但不是一个Array。"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "rest-ES6中引入的新标准，可以获取当前函数的调用者传入的指定参数外的额外参数。"
+                    }
+                ]
+            }, 
+            {
+                "id": 2, 
+                "title": "return", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "注意JavaScript会在行尾自动添加分号的机制，即写return语句是保持return与{在同一行(否则会return underfined)。"
+                    }
+                ]
+            }, 
+            {
+                "id": 3, 
+                "title": "变量", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "由于JavaScript的函数可以嵌套，此时，内部函数可以访问外部函数定义的变量，反过来则不行。"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "JavaScript会先扫描整个函数体语句，再把变量的定义提到函数顶部。不过不会提升函数的赋值。"
+                    }
+                ]
+            }, 
+            {
+                "id": 4, 
+                "title": "全局作用域", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "JavaScript默认有一个全局对象window，不在任何函数内定义的变量就会被绑定在window对象上。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "JavaScript实际上只有一个全局作用域。任何变量（函数也视为变量），如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则报ReferenceError错误。"
+                    }
+                ]
+            }, 
+            {
+                "id": 5, 
+                "title": "NameSpace", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "全局变量会绑定到window上，不同的JavaScript文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数，都会造成命名冲突。减少冲突的一个方法是把自己的所有变量和函数全部绑定到一个全局变量中。"
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "var nameSpace1 = {};\r\nnameSpace1.name = 'namespace1';\r\nnameSpace1.version = 1.0;\r\nnameSpace1.func = function() {\r\n\tcoding...;\r\n};"
+                    }
+                ]
+            }, 
+            {
+                "id": 6, 
+                "title": "方法", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "apply-它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "另一个与apply()类似的方法是call()，唯一区别是：apply()把参数打包成Array再传入;call()把参数按顺序传入。"
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "function.apply(null, [3, 5, 4]);\r\nfunction.call(null, 3, 5, 4)"
+                    }
+                ]
+            }, 
+            {
+                "id": 7, 
+                "title": "map", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "map()传入的参数为函数本身，将方法应用于Array中的每一个成员。"
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "function pow(x) {\r\n\treturn x * x;\r\n}\r\nvar arr = [1, 2, 3, 4, 5];\r\narr.map(pow);\t//[1, 4, 9, 16, 25] "
+                    }
+                ]
+            }, 
+            {
+                "id": 8, 
+                "title": "reduce", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "Array的reduce()把一个函数作用在这个Array的[x1, x2, x3...]上，这个函数必须接收两个参数，reduce()把结果继续和序列的下一个元素做累积计算。"
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "var arr = [1, 3, 5, 7, 9];\r\narr.reduce(function (x, y) {\r\n\treturn x * 10 + y;\r\n});\t//13579"
+                    }
+                ]
+            }, 
+            {
+                "id": 9, 
+                "title": "filter", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "filter()把Array的某些元素过滤掉，然后返回剩下的元素。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "和map()类似，Array的filter()也接收一个函数。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "把Array中的偶数删掉，只保留奇数："
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "var arr = [1, 2, 3, 4, 5, 6];\r\nvar r = arr.filter(function (x) {\r\n\treturn x % 2 != 0;\r\n});\r\nconsole.log(r);\t//[1, 3, 5]"
+                    }
+                ]
+            }, 
+            {
+                "id": 10, 
+                "title": "sort()", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "sort()方法默认把所有元素先转换为String再排序。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "sort()方法也是一个高阶函数，它还可以接收一个比较函数来实现自定义的排序:"
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "var arr = [10, 20, 1, 2];\r\narr.sort(function (x, y) {\r\n\tif (x < y) {\r\n\t\treturn -1;\r\n\t}\r\n\tif (x > y) {\r\n\t\treturn 1;\r\n\t}\r\n\treturn 0;\r\n});\t// [1, 2, 10, 20]"
+                    }
+                ]
+            },
+            {
+                "id": 10, 
+                "title": "闭包", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "Coding"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": ""
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": ""
+                    }
+                ]
+            }, 
+            {
+                "id": 11, 
+                "title": "闭包", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "Coding"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": ""
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": ""
+                    }
+                ]
+            },
+            {
+                "id": 12, 
+                "title": "generator", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "Coding"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": ""
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": ""
+                    }
+                ]
+            }
+        ]
+    }
+}
