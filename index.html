@@ -50,8 +50,8 @@
 		<div class="col-md-3">
 			<h4>目录</h4>
 			<ul id="list-1">
-				<li v-for="item in items">
-					<a v-bind:src='item.href' href=src>{{ item.message }}</a>
+				<li v-for="item in items" v-bind:src='item.href'>
+					<a href=src>{{ item.message }}</a>
 				</li>
 			</ul>
 		</div>
