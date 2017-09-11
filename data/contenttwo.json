@@ -8,15 +8,15 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "由于JavaScript允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有问题(多余的参数并不会被函数接收)，传入的参数比定义的参数少也没有问题(少的参数返回NaN)。"
+                        "content": "由于 JavaScript 允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有问题(多余的参数并不会被函数接收)，传入的参数比定义的参数少也没有问题(少的参数返回 NaN )。"
                     }, 
                     {
                         "dataType": "text",
-                        "content": "argument-只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。其类似Array但不是一个Array。"
+                        "content": "argument -只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。其类似 Array 但不是一个  Array。"
                     },
                     {
                         "dataType": "text",
-                        "content": "rest-ES6中引入的新标准，可以获取当前函数的调用者传入的指定参数外的额外参数。"
+                        "content": "rest -ES6中引入的新标准，可以获取当前函数的调用者传入的指定参数外的额外参数。"
                     }
                 ]
             }, 
@@ -26,7 +26,7 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "注意JavaScript会在行尾自动添加分号的机制，即写return语句是保持return与{在同一行(否则会return underfined)。"
+                        "content": "注意 JavaScript 会在行尾自动添加分号的机制，即写 return 语句时保持 return 与\"{\"在同一行。(否则会 return underfined)"
                     }
                 ]
             }, 
@@ -36,11 +36,11 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "由于JavaScript的函数可以嵌套，此时，内部函数可以访问外部函数定义的变量，反过来则不行。"
+                        "content": "由于 JavaScript 的函数可以嵌套，因此，内部函数可以访问外部函数定义的变量，反过来则不行。"
                     },
                     {
                         "dataType": "text",
-                        "content": "JavaScript会先扫描整个函数体语句，再把变量的定义提到函数顶部。不过不会提升函数的赋值。"
+                        "content": "JavaScript 会先扫描整个函数体语句，再把变量的定义提到函数顶部。不过不会提升函数的赋值。"
                     }
                 ]
             }, 
@@ -50,11 +50,11 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "JavaScript默认有一个全局对象window，不在任何函数内定义的变量就会被绑定在window对象上。"
+                        "content": "JavaScript默认有一个全局对象 window ，不在任何函数内定义的变量就会被绑定在 window 对象上。"
                     }, 
                     {
                         "dataType": "text",
-                        "content": "JavaScript实际上只有一个全局作用域。任何变量（函数也视为变量），如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则报ReferenceError错误。"
+                        "content": "JavaScript 实际上只有一个全局作用域。任何变量（函数也视为变量），如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则会返回 ReferenceError 错误。"
                     }
                 ]
             }, 
@@ -64,7 +64,7 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "全局变量会绑定到window上，不同的JavaScript文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数，都会造成命名冲突。减少冲突的一个方法是把自己的所有变量和函数全部绑定到一个全局变量中。"
+                        "content": "全局变量会绑定到 window 上，不同的 JavaScript 文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数，都会造成命名冲突。减少冲突的一个方法是把自己的所有变量和函数全部绑定到一同个全局变量中。"
                     }, 
                     {
                         "dataType": "JScode",
@@ -74,15 +74,19 @@
             }, 
             {
                 "id": 6, 
-                "title": "方法", 
+                "title": "apply()与call()", 
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "apply-它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。"
+                        "content": "call() 和 apply() 是所有函数都包含两个方法(这两个方法非继承而来),这两个方法都能改变函数的作用域，实际改变函数内部 this 的指向。"
                     },
                     {
                         "dataType": "text",
-                        "content": "另一个与apply()类似的方法是call()，唯一区别是：apply()把参数打包成Array再传入;call()把参数按顺序传入。"
+                        "content": "apply()-接收两个参数，第一个参数是需要绑定的 this 变量，第二个参数是 Array ，表示函数本身的参数。"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "另一个与 apply() 类似的方法是 call() ，唯一区别是：apply() 把参数打包成 Array 再传入; call() 把参数按顺序传入。"
                     },
                     {
                         "dataType": "JScode",
@@ -96,7 +100,7 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "map()传入的参数为函数本身，将方法应用于Array中的每一个成员。"
+                        "content": "map() 传入的参数为函数本身，将方法应用于 Array 中的每一个成员。"
                     },
                     {
                         "dataType": "JScode",
@@ -110,7 +114,7 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "Array的reduce()把一个函数作用在这个Array的[x1, x2, x3...]上，这个函数必须接收两个参数，reduce()把结果继续和序列的下一个元素做累积计算。"
+                        "content": "Array 的 reduce() 把一个函数作用在这个 Array 的 [x1, x2, x3...] 上，这个函数必须接收两个参数，reduce() 把结果继续和序列的下一个元素做累积计算。"
                     },
                     {
                         "dataType": "JScode",
@@ -124,15 +128,15 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "filter()把Array的某些元素过滤掉，然后返回剩下的元素。"
+                        "content": "filter() 把 Array 的某些元素过滤掉，然后返回剩下的元素。"
                     }, 
                     {
                         "dataType": "text",
-                        "content": "和map()类似，Array的filter()也接收一个函数。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。"
+                        "content": "和 map() 类似，Array 的 filter() 也接收一个函数。和 map() 不同的是，filter() 把传入的函数依次作用于每个元素，然后根据返回值是 true 还是 false 决定保留还是丢弃该元素。"
                     }, 
                     {
                         "dataType": "text",
-                        "content": "把Array中的偶数删掉，只保留奇数："
+                        "content": "把 Array 中的偶数删掉，只保留奇数："
                     },
                     {
                         "dataType": "JScode",
@@ -146,11 +150,11 @@
                 "contents": [
                     {
                         "dataType": "text",
-                        "content": "sort()方法默认把所有元素先转换为String再排序。"
+                        "content": "sort() 方法默认把所有元素先转换为 String 再排序。"
                     }, 
                     {
                         "dataType": "text",
-                        "content": "sort()方法也是一个高阶函数，它还可以接收一个比较函数来实现自定义的排序:"
+                        "content": "sort() 方法也是一个高阶函数，它还可以接收一个比较函数来实现自定义的排序:"
                     }, 
                     {
                         "dataType": "JScode",
@@ -172,7 +176,7 @@
                     }, 
                     {
                         "dataType": "text",
-                        "content": "这是由于JavaScript的\"链式作用域\"结构，子对象会一级级地向上寻找所有父对象的变量。所以，父对象的所有变量对子对象是可以读到的，而子对象的变量父对象是读不到的。\r\n以此可以通过将fun2()作为返回值而读到fun1()的内部变量。"
+                        "content": "这是由于 JavaScript 的\"链式作用域\"结构，子对象会一级级地向上寻找所有父对象的变量。所以，父对象的所有变量对子对象是可以读到的，而子对象的变量父对象是读不到的。\r\n以此可以通过将 fun2() 作为返回值而读到 fun1() 的内部变量。"
                     }
                 ]
             }, 
@@ -190,7 +194,7 @@
                     }, 
                     {
                         "dataType": "text",
-                        "content": "在这段代码中，result实际上就是闭包fun2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。原因就在于在JavaScript中如果一个对象不再被引用，那么该对象就会被垃圾回收机制（garbage collection）回收。如果两个对象相互引用而不被第三者引用，那么这两个相互引用的对象也会被回收。但fun1()被fun2()引用，fun2()又被fun1()以外的result引用，因此，fun1()执行后并不会被回收。"
+                        "content": "在这段代码中， result 实际上就是闭包 fun2 函数。它一共运行了两次，第一次的值是 999 ，第二次的值是 1000 。这证明了，函数 fun1 中的局部变量 n 一直保存在内存中，并没有在 fun1 调用后被自动清除。原因就在于在 JavaScript 中如果一个对象不再被引用，那么该对象就会被垃圾回收机制（garbage collection）回收。如果两个对象相互引用而不被第三者引用，那么这两个相互引用的对象也会被回收。但 fun1() 被 fun2() 引用，fun2() 又被 fun1() 以外的 result 引用，因此，fun1() 执行后并不会被回收。"
                     }
                 ]
             }
