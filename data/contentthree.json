@@ -1,0 +1,243 @@
+{
+    "status": 1, 
+    "result": {
+        "item": [
+            {
+                "id": 1, 
+                "title": "标准对象", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "typeof 操作符可以获取对象的类型，并以字符串返回(number、string、boolean、function、object、underfined)。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "注意：NaN 返回的类型为 number ;null、Array返回的类型为 object ；因此无法用 typeof 将其区分出来。"
+                    }
+                ]
+            }, 
+            {
+                "id": 2, 
+                "title": "包装对象(一)", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "number、boolean、string 可以用 new 关键字来创建包装对象。"
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "var num = new Number(123);\r\nvar bool = new Boolean(true);\r\nvar str = new String('str');"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "包装对象的显示值看似与原来一样,但其类型已经变为 object 类型了。"
+                    }
+                ]
+            }, 
+            {
+                "id": 3, 
+                "title": "包装对象(二)", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "但未使用 new 而直接使用 Numer() / Boolean() / String() 时，其会把任何数据转化成对应的类型。"
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "var Num = Number('123');\t//'number'\r\nvar Bool1 = Boolean('false');\t//bool true! 'false'字符串转换结果为true！因为它是非空字符串！\r\nvar Bool2 = Boolean('');\t// false\r\nvar Str = String(123.45);\t//string"
+                    }
+                ]
+            }, 
+            {
+                "id": 4, 
+                "title": "Date", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "获取系统当前时间- var now = new Date() 。注意：获取的时间是浏览器从本机操作系统获取的时间，不一定准确。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "在老版本的IE中没有now()方法，可以用getTime()方法："
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "if (Date.now) {\r\n\talert(Date.now());\r\n} else {\r\n\talert(new Date().getTime());\r\n}"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "创建一个指定日期和时间的 Date 对象方法一："
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "var d = new Date(2017, 8, 11, 18, 06, 30, 123);"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "第二种方法为解析一个符合ISO 8601格式的字符串："
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "var d = Date.parse('2017-09-11T18:06:30.875+08:00');"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "其返回的不是 Date 对象，而是一个 时间戳 ，可以用 new Date() 方法将它换为Date："
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "var d = new Date(1505124390875);"
+                    }
+                ]
+            }, 
+            {
+                "id": 5, 
+                "title": "JSON", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "JSON的数据类型与JavaScript一致。还定死了字符集必须是UTF-8。为了统一解析，JSON的字符串规定必须用双引号\"\"，Object 的 键 也必须用双引号\"\"。"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "JSON的序列化-将JavaScript对象转换为JSON格式的字符串：JSON.stringify(object);"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "也可以加上参数，如按缩进输出：JSON.stringify(object, null, '  '); 也可传入参数，象的每个键值对都会被函数处理。"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "JSON的反序列化-将JSON格式的字符串变成一个JavaScript对象：JSON.parse()"
+                    }
+                ]
+            }, 
+            {
+                "id": 6, 
+                "title": "类和实例", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "JavaScript不区分类和实例的，都是通过原型(prototype)来实现的。"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "因为JavaScript中的所有对象都是实例，所谓其继承关系为把一个对象的原型指向另一个对象。"
+                    }
+                ]
+            }, 
+            {
+                "id": 7, 
+                "title": "创建对象-直接创建", 
+                "contents": [
+                    {
+                        "dataType": "JScode",
+                        "content": "person = new Object();\r\nperson.name = \"BigWhite\";\r\nperson.age = 22;\r\nperson.sex = Male;"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "该例子直接创建了一个对象，并向其添加了一些基础的属性。"
+                    }
+                ]
+            }, 
+            {
+                "id": 8, 
+                "title": "创建对象-使用对象构造器", 
+                "contents": [
+                    {
+                        "dataType": "JScode",
+                        "content": "function person(name, age, sex) {\r\n\tthis.name = \"BigWhite\";\r\n\ttihs.age = 22;\r\n\tthis.sex = Male;\r\n}"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "该例子创建了一个对象构造器。并赋予其一些属性。"
+                    }
+                ]
+            }, 
+            {
+                "id": 9, 
+                "title": "创建对象-使用对象构造器(plus)", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "1、工厂模式："
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "function createPerson(name, age, sex) {\r\n\tvar p = new Object();\r\n\tp.name = name;\r\n\tp.age = age;\r\n\tp.sex = sex;\r\n\tp.sayName = function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n\treturn p;\r\n}\r\nvar person1 = createPerson(\"BigWhite\", 22, \"Male\");\r\nperson1.sayName();\t//BigWhite\r\nvar person2 = createPerson(\"SmallBlack\", 23, \"Male\");\r\nperson2.sayName();\t//SmallBlack\r\nperson1.sayName();\t//BigWhite"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "其缺陷：无法知道一个对象的类型"
+                    }
+                ]
+            }, 
+            {
+                "id": 10, 
+                "title": "", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "2、构造函数模式："
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n\tthis.sayName = function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}\r\nvar person1 = Person(\"BigWhite\", 22, \"Male\");\r\nperson1.sayName();\t//BigWhite\r\nvar person2 = Person(\"SmallBlack\", 23, \"Male\");\r\nperson2.sayName();\t//SmallBlack\r\nperson1.sayName();\t//BigWhite\r\nconsole.log(person1 instanceof Person);\t//true\r\nconsole.log(person1 instanceof Object);\t//true"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "sayName()方法在person1和person2实例上都重新创建了一遍。而这是可以避免的："
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n\tthis.sayName = sayName;\r\n}\r\n\r\nfunction sayName() {\r\n\tconsole.log(this.name);\r\n}"
+                    },
+                    {
+                        "dataType": "text",
+                        "content": "把sayName属性设置成全局的sayName函数，这样，由于sayName包含的是一个指向函数的指针，因此person1和person2对象就共享了同一个函数。"
+                    }
+                ]
+            },
+            {
+                "id": 11, 
+                "title": "", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "3、原型(prototype)模式："
+                    },
+                    {
+                        "dataType": "JScode",
+                        "content": "function Person() {\r\n};\r\nPerson.prototype.name = \"BigWhite\";\r\nPerson.prototype.age = 22;\r\nPerson.prototype.sex = \"Male\";\r\n\r\nvar person1 = new Person();\r\nconsole.log(person1.name);\t//BigWhite\r\nvar person2 = new Person();\r\nperson2.__proto__.name = \"SmallBlack\";\r\nconsole.log(person1.name);\t//SamllBlack;"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "原型继承的特点是实例对原型的共享，而当其涉及到对原型的修改时就体现出其缺陷："
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "Person.prototype.friends = [\"BigWhite\", \"SamllBlack\"];\r\nconsole.log(person1.friends);\t\t//[\"BigWhite\", \"SamllBlack\"];\r\nperson2.friends.push(\"MaryLin\");\r\nconsole.log(person1.friends);\t\t//[\"BigWhite\", \"SamllBlack\", \"MaryLin\"];)"
+                    }
+                ]
+            }, 
+            {
+                "id": 12, 
+                "title": "", 
+                "contents": [
+                    {
+                        "dataType": "text",
+                        "content": "4、构造模式 + 原型模式："
+                    }, 
+                    {
+                        "dataType": "JScode",
+                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n\tthis.sayName = sayName;\r\n}\r\nPerson.prototype = {\r\n\tconstruct: Person;\r\n\tsayName(): function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}"
+                    }, 
+                    {
+                        "dataType": "text",
+                        "content": "对实例的私有属性、方法等使用构造模式，而对公有的属性、方法等使用原型模式。"
+                    }
+                ]
+            }
+        ]
+    }
+}
