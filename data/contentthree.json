@@ -230,7 +230,7 @@
                     }, 
                     {
                         "dataType": "JScode",
-                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n\tthis.sayName = sayName;\r\n}\r\nPerson.prototype = {\r\n\tconstruct: Person;\r\n\tsayName(): function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}"
+                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n}\r\nPerson.prototype = {\r\n\tconstruct: Person;\r\n\tsayName(): function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}"
                     }, 
                     {
                         "dataType": "text",
