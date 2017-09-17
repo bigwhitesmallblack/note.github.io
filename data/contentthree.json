@@ -182,7 +182,7 @@
                     }, 
                     {
                         "dataType": "JScode",
-                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n\tthis.sayName = function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}\r\nvar person1 = Person(\"BigWhite\", 22, \"Male\");\r\nperson1.sayName();\t//BigWhite\r\nvar person2 = Person(\"SmallBlack\", 23, \"Male\");\r\nperson2.sayName();\t//SmallBlack\r\nperson1.sayName();\t//BigWhite\r\nconsole.log(person1 instanceof Person);\t//true\r\nconsole.log(person1 instanceof Object);\t//true"
+                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n\tthis.sayName = function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}\r\nvar person1 = new Person(\"BigWhite\", 22, \"Male\");\r\nperson1.sayName();\t//BigWhite\r\nvar person2 = new Person(\"SmallBlack\", 23, \"Male\");\r\nperson2.sayName();\t//SmallBlack\r\nperson1.sayName();\t//BigWhite\r\nconsole.log(person1 instanceof Person);\t//true\r\nconsole.log(person1 instanceof Object);\t//true"
                     }, 
                     {
                         "dataType": "text",
