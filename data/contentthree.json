@@ -217,61 +217,7 @@
                 ]
             },
             {
-                "id": 12, 
-                "title": "", 
-                "contents": [
-                    {
-                        "dataType": "text",
-                        "content": "4、构造模式 + 原型模式："
-                    }, 
-                    {
-                        "dataType": "JScode",
-                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n}\r\nPerson.prototype = {\r\n\tconstruct: Person;\r\n\tsayName(): function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}"
-                    }, 
-                    {
-                        "dataType": "text",
-                        "content": "对实例的私有属性、方法等使用构造模式，而对公有的属性、方法等使用原型模式。"
-                    }
-                ]
-            },
-            {
-                "id": 13, 
-                "title": "", 
-                "contents": [
-                    {
-                        "dataType": "text",
-                        "content": "4、构造模式 + 原型模式："
-                    }, 
-                    {
-                        "dataType": "JScode",
-                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n}\r\nPerson.prototype = {\r\n\tconstruct: Person;\r\n\tsayName(): function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}"
-                    }, 
-                    {
-                        "dataType": "text",
-                        "content": "对实例的私有属性、方法等使用构造模式，而对公有的属性、方法等使用原型模式。"
-                    }
-                ]
-            },
-            {
-                "id": 14, 
-                "title": "", 
-                "contents": [
-                    {
-                        "dataType": "text",
-                        "content": "4、构造模式 + 原型模式："
-                    }, 
-                    {
-                        "dataType": "JScode",
-                        "content": "function Person(name, age, sex) {\r\n\tthis.name = name;\r\n\tthis.age = age;\r\n\tthis.sex = sex;\r\n}\r\nPerson.prototype = {\r\n\tconstruct: Person;\r\n\tsayName(): function() {\r\n\t\tconsole.log(this.name);\r\n\t}\r\n}"
-                    }, 
-                    {
-                        "dataType": "text",
-                        "content": "对实例的私有属性、方法等使用构造模式，而对公有的属性、方法等使用原型模式。"
-                    }
-                ]
-            },
-            {
-                "id": 15,
+                "id": 12,
                 "title": "原型继承",
                 "contents": [
                     {
@@ -289,7 +235,7 @@
                 ]
             },
             {
-                "id": 16,
+                "id": 13,
                 "title": "class继承",
                 "contents": [
                     {
