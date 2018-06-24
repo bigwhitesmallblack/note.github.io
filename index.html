@@ -69,6 +69,7 @@
                     <option value="One">One</option>
                     <option value="Two">Two</option>
                     <option value="Three">Three</option>
+                    <option value="Four">Four</option>
                 </select></td>
                 <td class="tdResult" data-name="0"></td>
             </tr>
@@ -113,16 +114,16 @@
         let targetNum = -1;
 
         table.addEventListener("change", (e) => {
-            console.log('change is listing');
+            //console.log('change is listing');
             let num = parseInt(e.target.getAttribute("name"));
             tdResult[num].innerText = selectList[num].value;
         });
 
         table.addEventListener("mousedown", (e) => {
-            console.log("mousedown");
+            //console.log("mousedown");
             let lisenItem = e.target.getAttribute("class");
             if(lisenItem == "tdResult") {
-                console.log("Ready");
+                //console.log("Ready");
                 flag = 1;
                 let num = parseInt(e.target.getAttribute("data-name"));
                 targetNum = num;
@@ -136,21 +137,38 @@
 
         table.addEventListener("mousemove", (e) => {
             if(flag == 1) {
-                console.log("move");
+                //console.log("move");
                 touchBox.style.marginLeft = (e.clientX - table.getBoundingClientRect().left - 22.5) + "px";
                 touchBox.style.marginTop = (e.clientY - table.getBoundingClientRect().top - 12.5) + "px";
             }
         });
 
         touchBox.addEventListener("mouseup", (e) => {
-            console.log("mouseUp");
+            //console.log("mouseUp");
             if(flag == 1) {
                 flag = 0;
                 let width = (e.clientX - 22.5 - tdResult[0].getBoundingClientRect().left);
                 let height = (e.clientY - 12.5 - tdResult[0].getBoundingClientRect().top);
-                console.log("width:" + width + " height:" + height);
+                //console.log("width:" + width + " height:" + height);
                 touchBox.style.display = "none"
                 let num = parseInt(height/ 25 + 0.25);
+                //console.log(num);
+                if(num == 4) {
+                    num = 3;
+                } else if (num < 0) {
+                    num = 0;
+                }
+                let arr = [];
+                for(let i = 0; i < selectList[num].options.length; i++) {
+                    arr.push(selectList[num].options[i].value); 
+                }
+                if(arr.indexOf(touchBox.innerText) == -1) {
+                    let newOption = document.createElement("option");
+                    newOption.value = touchBox.innerText;
+                    newOption.innerText = touchBox.innerText;
+                    selectList[num].appendChild(newOption);
+                }
+                //console.log(arr);
                 selectList[targetNum].value = selectList[targetNum].options[0].value;
                 tdResult[num].innerText = touchBox.innerText;
                 selectList[num].value = touchBox.innerText;
