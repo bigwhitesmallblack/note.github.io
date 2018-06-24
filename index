@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MoveSelect</title>
+    <style>
+        li {
+            list-style: none;
+            height: 20px;
+            width: 100px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .none-select {
+            -moz-user-select: none; /*火狐*/
+            -webkit-user-select: none;  /*webkit浏览器*/
+            -ms-user-select: none;   /*IE10*/
+            -khtml-user-select: none; /*早期浏览器*/
+            user-select: none;
+        }
+
+        .item {
+            width: 100px;
+        }
+
+        .table {
+            padding-left: 20px;
+            padding-right: 20px;
+            border: 1px solid black;
+        }
+
+        .tdText {
+            width: 65px;
+        }
+
+        .select {
+            cursor: pointer;
+        }
+
+        .tdResult {
+            width: 75px;
+            height: 25px;
+            border-left: 1px solid black;
+            padding-left: 10px;
+        }
+
+        .touchBox {
+            width: 45px;
+            height: 25px;
+            border: 1px solid black;
+            border-radius: 20%;
+            position: fixed;
+            display: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <div class="touchBox none-select"></div>
+        <table class="table none-select">
+            <tr>
+                <td class="item">itemOne: </td>
+                <td class="tdText"><select class="select" name="0">
+                    <option value="Null"></option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                </select></td>
+                <td class="tdResult" data-name="0"></td>
+            </tr>
+            <tr>
+                <td class="item">itemTwo: </td>
+                <td class="tdText"><select class="select" name="1">
+                    <option value="Null"></option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                </select></td>
+                <td class="tdResult" data-name="1"></td>
+            </tr>
+            <tr>
+                <td class="item">itemThree: </td>
+                <td class="tdText"><select class="select" name="2">
+                    <option value="Null"></option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                </select></td>
+                <td class="tdResult" data-name="2"></td>
+            </tr>
+            <tr>
+                <td class="item">itemFour: </td>
+                <td class="tdText"><select class="select" name="3">
+                    <option value="Null"></option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                </select></td>
+                <td class="tdResult" data-name="3"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        let table = document.getElementsByTagName("table")[0];
+        let selectList = document.getElementsByClassName("select");
+        let tdResult = document.getElementsByClassName("tdResult");
+        let touchBox = document.getElementsByClassName('touchBox')[0];
+        let flag = 0;
+        let targetNum = -1;
+
+        table.addEventListener("change", (e) => {
+            console.log('change is listing');
+            let num = parseInt(e.target.getAttribute("name"));
+            tdResult[num].innerText = selectList[num].value;
+        });
+
+        table.addEventListener("mousedown", (e) => {
+            console.log("mousedown");
+            let lisenItem = e.target.getAttribute("class");
+            if(lisenItem == "tdResult") {
+                console.log("Ready");
+                flag = 1;
+                let num = parseInt(e.target.getAttribute("data-name"));
+                targetNum = num;
+                touchBox.style.display = "block";
+                touchBox.innerText = tdResult[num].innerText;
+                touchBox.style.marginLeft = (e.clientX - table.getBoundingClientRect().left - 22.5) + "px";
+                touchBox.style.marginTop = (e.clientY - table.getBoundingClientRect().top - 12.5) + "px";
+                tdResult[num].innerText = "";
+            }
+        });
+
+        table.addEventListener("mousemove", (e) => {
+            if(flag == 1) {
+                console.log("move");
+                touchBox.style.marginLeft = (e.clientX - table.getBoundingClientRect().left - 22.5) + "px";
+                touchBox.style.marginTop = (e.clientY - table.getBoundingClientRect().top - 12.5) + "px";
+            }
+        });
+
+        touchBox.addEventListener("mouseup", (e) => {
+            console.log("mouseUp");
+            if(flag == 1) {
+                flag = 0;
+                let width = (e.clientX - 22.5 - tdResult[0].getBoundingClientRect().left);
+                let height = (e.clientY - 12.5 - tdResult[0].getBoundingClientRect().top);
+                console.log("width:" + width + " height:" + height);
+                touchBox.style.display = "none"
+                let num = parseInt(height/ 25 + 0.25);
+                selectList[targetNum].value = selectList[targetNum].options[0].value;
+                tdResult[num].innerText = touchBox.innerText;
+                selectList[num].value = touchBox.innerText;
+            }
+
+        });
+    </script>
+</body>
+</html>
